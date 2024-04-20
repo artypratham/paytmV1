@@ -4,18 +4,15 @@ import { Button } from "../components/Button";
 import { Heading } from "../components/Heading";
 import { InputBox } from "../components/InputBox";
 import { SubHeading } from "../components/SubHeading";
-
+import axios from "axios"
 
 export const Signup = () => {
 
-    const handleSignup = () => {
-        // Logic for signing up goes here
-        console.log("Sign up button clicked!");
-    };
+    
 
     const [firstName, setFirstName] = useState(" ")
     const [lastName, setLastName] = useState(" ")
-    const [email, setEmail] = useState(" ")
+    const [username, setUserName] = useState(" ")
     const [password, setPassword] = useState(" ")
 
     return(
@@ -34,7 +31,7 @@ export const Signup = () => {
             }} label={"Last Name"} placeholder="Enter your last name" />
 
             <InputBox onChange={e => {
-                setEmail(e.target.value)
+                setUserName(e.target.value)
             }}  label={"Email"} placeholder="Enter your email"/>
 
             <InputBox onChange={e => {
@@ -42,7 +39,14 @@ export const Signup = () => {
             }} label={"Password"} placeholder="Set a strong password"/>
             
             <div className="pt-4">
-                <Button label={"Sign up"} onClick={handleSignup}/>
+                <Button  onClick={() => {
+                      axios.post("http://localhost:3000/api/v1/user/signup", {
+                      username, 
+                      firstName,
+                        lastName,
+                        password
+                      })
+                }} label={"Sign up"} />
             </div>
 
             <BottomWarning label={"Already have an account? " } buttonText={"Sign in"} to={"/signin"} />

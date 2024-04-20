@@ -4,6 +4,8 @@ import { Heading } from "../components/Heading";
 import { InputBox } from "../components/InputBox";
 import { SubHeading } from "../components/SubHeading";
 
+
+
 export const Signin = ()  => {
     return(
         <div className="bg-slate-300 h-screen flex justify-center">
