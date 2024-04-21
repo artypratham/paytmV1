@@ -6,6 +6,7 @@ import { InputBox } from "../components/InputBox";
 import { SubHeading } from "../components/SubHeading";
 import axios from "axios"
 
+
 export const Signup = () => {
 
     
@@ -53,7 +54,10 @@ export const Signup = () => {
                       //the way to remnove the token from local storage is
                       //localStorage.removeItem("token")  
 
-                }} label={"Sign up"} />
+                      
+
+                }} label={"Sign up"}  />
+                
             </div>
 
             <BottomWarning label={"Already have an account? " } buttonText={"Sign in"} to={"/signin"} />
