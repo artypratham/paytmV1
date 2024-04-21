@@ -5,6 +5,7 @@ import { Heading } from "../components/Heading";
 import { InputBox } from "../components/InputBox";
 import { SubHeading } from "../components/SubHeading";
 import axios from "axios"
+import { useNavigate } from "react-router-dom";
 
 
 export const Signup = () => {
@@ -15,7 +16,7 @@ export const Signup = () => {
     const [lastName, setLastName] = useState(" ")
     const [username, setUserName] = useState(" ")
     const [password, setPassword] = useState(" ")
-
+    const navigate = useNavigate()
     return(
         <div className="bg-slate-300 h-screen flex justify-center">
             <div className="flex flex-col justify-center">
@@ -54,7 +55,7 @@ export const Signup = () => {
                       //the way to remnove the token from local storage is
                       //localStorage.removeItem("token")  
 
-                      
+                      navigate("/dashboard")
 
                 }} label={"Sign up"}  />
                 
