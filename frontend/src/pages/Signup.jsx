@@ -39,13 +39,20 @@ export const Signup = () => {
             }} label={"Password"} placeholder="Set a strong password"/>
             
             <div className="pt-4">
-                <Button  onClick={() => {
-                      axios.post("http://localhost:3000/api/v1/user/signup", {
+                <Button  onClick={async () => {
+                      const response = await axios.post("http://localhost:3000/api/v1/user/signup", {
                       username, 
                       firstName,
                         lastName,
                         password
-                      })
+                      });
+                      //storing the token in localStorage for further use
+                      localStorage.setItem("token", response.data.token)
+
+                      //to remove the user when they click on logut we have to remove the token
+                      //the way to remnove the token from local storage is
+                      //localStorage.removeItem("token")  
+
                 }} label={"Sign up"} />
             </div>
 
